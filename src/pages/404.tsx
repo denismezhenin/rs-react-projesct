@@ -1,8 +1,5 @@
 import { Component } from "react";
 
-// import ReactDOM from "react-dom/client";
-// import { useState } from "react";
-
 class AboutPage extends Component {
   render() {
     return (

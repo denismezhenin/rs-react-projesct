@@ -1,45 +1,29 @@
 import { ChangeEvent, Component } from "react";
-import { tsQuerySelector } from "../constants/function";
-
-// import ReactDOM from "react-dom/client";
-// import { useState } from "react";
-type MyProps = object;
-type MyState = { value: string };
-
-class SearchFrom extends Component<{ name: string }, { value: string }> {
-  // value;
-
-  constructor(props) {
+class SearchForm extends Component<object, { value: string | null }> {
+  constructor(props: object) {
     super(props);
     this.state = localStorage.getItem("search")
       ? { value: localStorage.getItem("search") }
       : { value: "" };
   }
 
-  // value = localStorage.getItem("search") ? localStorage.getItem("search") : "";
-
-  saveToLocalStorage(event: ChangeEvent): void {
-    //convert input text to lower case
+  saveToLocalStorage = (event: ChangeEvent) => {
     if (!(event.target instanceof HTMLInputElement)) return;
     const { target } = event;
-    this.setState({ value: target.value });
-    // this.value = ;
-    localStorage.setItem("search", this.state.value);
-    // if (!e) return;
-    // if (e != null) {
-    // }
-    // setInputText(lowerCase);
-  }
+    const value = target.value;
+    localStorage.setItem("search", value);
+    this.setState({ value: value });
+  };
+
   render() {
     return (
       <div className="form-wrapper">
         <div className="form">
           <input
-            type="search"
-            className="form-search"
             onChange={this.saveToLocalStorage}
+            type="text"
             placeholder="Search products"
-            value={this.state.value}
+            value={this.state.value ? this.state.value : ""}
           />
           <button>Search</button>
         </div>
@@ -48,4 +32,5 @@ class SearchFrom extends Component<{ name: string }, { value: string }> {
   }
 }
 
-export default SearchFrom;
+export default SearchForm;
+

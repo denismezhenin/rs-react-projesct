@@ -1,4 +1,3 @@
-import React from "react";
 import { Component } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 
@@ -7,8 +6,12 @@ export class Layout extends Component {
     return (
       <>
         <header className="header">
-          <NavLink to="/" className="nav-link">Home</NavLink>
-          <NavLink to="/about" className="nav-link">About </NavLink>
+          <NavLink to="/" className="nav-link">
+            Home
+          </NavLink>
+          <NavLink to="/about" className="nav-link">
+            About
+          </NavLink>
         </header>
         <main className="wrapper">
           <Outlet />
