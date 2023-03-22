@@ -33,4 +33,3 @@ class SearchForm extends Component<object, { value: string | null }> {
 }
 
 export default SearchForm;
-
