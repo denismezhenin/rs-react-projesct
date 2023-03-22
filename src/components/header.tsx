@@ -9,16 +9,6 @@ export class Header extends Component {
   render() {
     return (
       <>
-        <header className="header">
-          <nav className="nav">
-            <Link to="/" className="link">
-              Home
-            </Link>
-            <Link to="/about" className="link">
-              About
-            </Link>
-          </nav>
-        </header>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/about" element={<About />} />

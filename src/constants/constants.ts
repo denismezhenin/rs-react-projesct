@@ -12,3 +12,5 @@ export interface IProduct {
   images: string[];
   count?: number;
 }
+
+export type MySearchProps = Record<string, never>;
