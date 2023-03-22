@@ -5,7 +5,7 @@ export class Layout extends Component {
   render() {
     return (
       <>
-        <header className="header">
+        <header className="header" data-testid="header">
           <NavLink to="/" className="nav-link">
             Home
           </NavLink>

@@ -26,6 +26,7 @@ class SearchForm extends Component<MySearchProps, { value: string | null }> {
             type="text"
             placeholder="Search products"
             value={this.state.value ? this.state.value : ""}
+            data-testid="searchForm-input"
           />
           <button>Search</button>
         </div>
