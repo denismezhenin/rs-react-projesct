@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.nav-link {
+  margin: 10px;
+  padding: 5px;
+  color: $text-color;
+}
+
+.active {
+  border: 1px bottom $main-lighter;
+  color: $second-color-lighter;
+}
