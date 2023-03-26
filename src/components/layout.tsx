@@ -12,6 +12,9 @@ export class Layout extends Component {
           <NavLink to="/about" className="nav-link">
             About
           </NavLink>
+          <NavLink to="/form" className="nav-link">
+            Form
+          </NavLink>
         </header>
         <main className="wrapper">
           <Outlet />
