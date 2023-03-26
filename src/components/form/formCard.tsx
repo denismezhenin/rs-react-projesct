@@ -1,12 +1,12 @@
 import { Component } from "react";
-// import { IProduct } from "../../constants/constants";
+import { IFormCardProps } from "../../constants/constants";
 
-class FormCard extends Component {
-
+class FormCard extends Component<IFormCardProps> {
   render() {
     return (
       <li className="list-tem item">
-        <span className="item__name">Name:
+        <span className="item__name">
+          Name:
           {this.props.firstName} {this.props.secondName}
         </span>
         <span className="item__price">Sex: {this.props.sex}</span>
@@ -21,9 +21,6 @@ class FormCard extends Component {
           <span>Country: {this.props.country}</span>
           <span>Birthday: {this.props.birthday}</span>
           <span>Agreement: {this.props.agree ? "yes" : "no"}</span>
-          {/* <span>Brand: {this.props.brand}</span>
-          <span>Discount: {this.props.discountPercentage}%</span>
-          <span>Stock: {this.props.stock}</span> */}
         </div>
         <div className="item__buttons-wrapper"></div>
       </li>

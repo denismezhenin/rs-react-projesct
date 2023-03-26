@@ -1,8 +1,8 @@
 import { ChangeEvent, Component } from "react";
-import { MySearchProps } from "../constants/constants";
+import { MyProps } from "../constants/constants";
 
-class SearchForm extends Component<MySearchProps, { value: string | null }> {
-  constructor(props: MySearchProps) {
+class SearchForm extends Component<MyProps, { value: string | null }> {
+  constructor(props: MyProps) {
     super(props);
     this.state = localStorage.getItem("search")
       ? { value: localStorage.getItem("search") }

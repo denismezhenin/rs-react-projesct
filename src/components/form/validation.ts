@@ -6,7 +6,7 @@ export const VALIDATION = {
     },
     {
       isValid: (value: string) => /^[a-z ,.'-]+$/i.test(value),
-      message: "Needs to be an email.",
+      message: "Needs to be written in latin letters",
     },
   ],
   secondName: [
@@ -16,7 +16,7 @@ export const VALIDATION = {
     },
     {
       isValid: (value: string) => /^[a-z ,.'-]+$/i.test(value),
-      message: "Needs to be an email.",
+      message: "Needs to be written in latin letters",
     },
   ],
   birthday: [
