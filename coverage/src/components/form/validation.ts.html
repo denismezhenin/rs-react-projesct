@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.82% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>45/46</span>
+                <span class='fraction'>52/52</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.82% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>45/46</span>
+                <span class='fraction'>52/52</span>
             </div>
         
             
@@ -109,7 +109,13 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -154,53 +160,65 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const VALIDATION = {
   firstName: [
     {
-      isValid: <span class="fstat-no" title="function not covered" >(value: string) =&gt; !!value,</span>
+      isValid: (value: string) =&gt; !!value,
       message: "Is required.",
     },
     {
-      isValid: <span class="fstat-no" title="function not covered" >(value: string) =&gt; /^[a-z ,.'-]+$/i.test(value),</span>
+      isValid: (value: string) =&gt; /^[a-z ,.'-]+$/i.test(value),
       message: "Needs to be written in latin letters",
     },
   ],
   secondName: [
     {
-      isValid: <span class="fstat-no" title="function not covered" >(value: string) =&gt; !!value,</span>
+      isValid: (value: string) =&gt; !!value,
       message: "Is required.",
     },
     {
-      isValid: <span class="fstat-no" title="function not covered" >(value: string) =&gt; /^[a-z ,.'-]+$/i.test(value),</span>
+      isValid: (value: string) =&gt; /^[a-z ,.'-]+$/i.test(value),
       message: "Needs to be written in latin letters",
     },
   ],
   birthday: [
     {
-      isValid: <span class="fstat-no" title="function not covered" >(value: string) =&gt; !!value,</span>
+      isValid: (value: string) =&gt; !!value,
       message: "Is required.",
     },
   ],
   country: [
     {
-      isValid: <span class="fstat-no" title="function not covered" >(value: string) =&gt; !!value,</span>
+      isValid: (value: string) =&gt; !!value,
       message: "Is required.",
     },
   ],
   sex: [
     {
-      isValid: <span class="fstat-no" title="function not covered" >(value: string) =&gt; !!value,</span>
+      isValid: (value: string) =&gt; !!value,
       message: "Is required.",
     },
   ],
   image: [
     {
-      isValid: <span class="fstat-no" title="function not covered" >(value: string) =&gt; !!value,</span>
+      isValid: (value: string) =&gt; !!value,
       message: "Is required.",
     },
   ],
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >};</span></span>
+  agree: [
+    {
+      isValid: (value: string) =&gt; !!value,
+      message: "Is required.",
+    },
+  ],
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -208,7 +226,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-27T16:54:14.892Z
+                at 2023-03-27T21:12:25.140Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

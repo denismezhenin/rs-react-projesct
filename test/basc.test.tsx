@@ -6,6 +6,8 @@ import { describe, test, expect, it } from "vitest";
 import App from "../src/app";
 import Layout from "../src/components/layout";
 import SearchForm from "../src/components/search";
+import FormPage from "../src/pages/form";
+import FormCard from "../src/components/form/formCard";
 
 describe("router test", () => {
   test("About page is rendering", async () => {
@@ -66,5 +68,54 @@ describe("Search input tests", () => {
     ) as HTMLInputElement;
     fireEvent.keyDown(searchInput, { target: { value: "Apple" } });
     expect(window.localStorage.search).toBeDefined;
+  });
+});
+
+describe("form test", () => {
+  test("Display warning when no data provided", async () => {
+    render(<FormPage />);
+    const FirstNameInput = screen.getByLabelText("First Name");
+    const SecondNameInput = screen.getByLabelText("Second Name");
+    const CountryInput = screen.getByTestId("country") as HTMLSelectElement;
+    const DateInput = screen.getByLabelText("Your birthday");
+    const SexInput = screen.getByLabelText("Male");
+    const checkInput = screen.getByLabelText("I consent to my personal data");
+    const fileInput = screen.getByTestId("fileInput");
+    fireEvent.keyDown(FirstNameInput, { target: { value: "Dzianis" } });
+    fireEvent.keyDown(SecondNameInput, { target: { value: "Miazhenin" } });
+    fireEvent.change(CountryInput, { target: { value: "Belarus" } });
+    fireEvent.keyDown(DateInput, { target: { value: "2023-03-22" } });
+    fireEvent.click(SexInput);
+    fireEvent.click(checkInput);
+    const file = new File(["background"], "background.jpg", {
+      type: "image/jpg",
+    });
+    fireEvent.change(fileInput, {
+      target: { files: [file] },
+    });
+    fireEvent.click(screen.getByText(/Submit/i));
+    expect(CountryInput.value).to.equal("Belarus");
+    expect(screen.getByText("Is required.")).toBeDefined;
+  });
+});
+
+describe("Form card", () => {
+  it("renders form data correctly", () => {
+    const mockUser = {
+      firstName: "Dzianis",
+      secondName: "Miazhenin",
+      country: "Belarus",
+      sex: "male",
+      birthday: "2023-03-22",
+      agree: "yes",
+      image: "home.png",
+    };
+    render(<FormCard {...mockUser} />);
+    expect(screen.getByText(/Dzianis/)).toBeDefined;
+    expect(screen.getByText(/Country: Belarus/)).toBeDefined;
+    expect(screen.getByText(/Birthday: 2023-03-22/)).toBeDefined;
+    expect(screen.getByText(/Sex: male/)).toBeDefined;
+    const img = screen.getByRole("img") as HTMLImageElement;
+    expect(img.src).toContain("home.png");
   });
 });

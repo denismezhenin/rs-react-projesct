@@ -43,4 +43,10 @@ export const VALIDATION = {
       message: "Is required.",
     },
   ],
+  agree: [
+    {
+      isValid: (value: string) => !!value,
+      message: "To create card it is necessary to agree",
+    },
+  ],
 };

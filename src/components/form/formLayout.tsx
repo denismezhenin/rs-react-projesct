@@ -109,7 +109,11 @@ class FormLayout extends Component<
           ) : (
             <Sex message="" />
           )}
-          <Agreement message="" />
+          {this.state.errors.agree!.length > 0 ? (
+            <Agreement message={this.state.errors.agree![0].message} />
+          ) : (
+            <Agreement message="" />
+          )}
           {this.state.errors.image!.length > 0 ? (
             <FileUpload message={this.state.errors.image![0].message} />
           ) : (
