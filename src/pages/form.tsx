@@ -1,7 +1,7 @@
 import { Component } from "react";
 import FormLayout from "../components/form/formLayout";
 
-class MainPage extends Component {
+class FormPage extends Component {
   render() {
     return (
       <div className="main">
@@ -11,4 +11,4 @@ class MainPage extends Component {
   }
 }
 
-export default MainPage;
+export default FormPage;

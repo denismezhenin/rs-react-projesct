@@ -8,12 +8,22 @@ import Layout from "../src/components/layout";
 import SearchForm from "../src/components/search";
 
 describe("router test", () => {
-  test("Main and about page is rendering", async () => {
+  test("About page is rendering", async () => {
     render(<App />);
     const user = userEvent.setup();
     expect(screen.getByTestId("header")).toBeDefined;
     await user.click(screen.getByText(/about/i));
     expect(screen.getByText(/This should be information about us/)).toBeDefined;
+  });
+});
+
+describe("router test", () => {
+  test("Form page is rendering", async () => {
+    render(<App />);
+    const user = userEvent.setup();
+    expect(screen.getByTestId("header")).toBeDefined;
+    await user.click(screen.getByText("Form"));
+    expect(screen.getByText(/Country/)).toBeDefined;
   });
 });
 

@@ -61,6 +61,7 @@ class FormLayout extends Component<
       this.setState((prev) => ({ ...prev, errors: errorObject }));
       this.state.cards.push(card);
       this.Form.current?.reset();
+      alert("User card has been created");
     }
   };
 
