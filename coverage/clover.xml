@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1679903909105" clover="3.2.0">
-  <project timestamp="1679903909105" name="All files">
-    <metrics statements="2731" coveredstatements="2649" conditionals="67" coveredconditionals="38" methods="46" coveredmethods="32" elements="2844" coveredelements="2719" complexity="0" loc="2731" ncloc="2731" packages="5" files="15" classes="15"/>
+<coverage generated="1679936054910" clover="3.2.0">
+  <project timestamp="1679936054910" name="All files">
+    <metrics statements="2797" coveredstatements="2649" conditionals="71" coveredconditionals="38" methods="50" coveredmethods="32" elements="2918" coveredelements="2719" complexity="0" loc="2797" ncloc="2797" packages="5" files="19" classes="19"/>
     <package name="src">
-      <metrics statements="1955" coveredstatements="1955" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <metrics statements="1965" coveredstatements="1955" conditionals="3" coveredconditionals="2" methods="3" coveredmethods="2"/>
       <file name="app.tsx" path="/Users/Denis/rs/React/src/app.tsx">
         <metrics statements="28" coveredstatements="28" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -34,6 +34,19 @@
         <line num="26" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/Users/Denis/rs/React/src/index.tsx">
+        <metrics statements="10" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
       </file>
       <file name="productItems.ts" path="/Users/Denis/rs/React/src/productItems.ts">
         <metrics statements="1927" coveredstatements="1927" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -1967,7 +1980,7 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="97" coveredstatements="96" conditionals="11" coveredconditionals="10" methods="7" coveredmethods="6"/>
+      <metrics statements="132" coveredstatements="96" conditionals="13" coveredconditionals="10" methods="9" coveredmethods="6"/>
       <file name="card.tsx" path="/Users/Denis/rs/React/src/components/card.tsx">
         <metrics statements="31" coveredstatements="31" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -2001,6 +2014,47 @@
         <line num="29" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
+      </file>
+      <file name="footer.tsx" path="/Users/Denis/rs/React/src/components/footer.tsx">
+        <metrics statements="12" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+      </file>
+      <file name="header.tsx" path="/Users/Denis/rs/React/src/components/header.tsx">
+        <metrics statements="23" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
       </file>
       <file name="layout.tsx" path="/Users/Denis/rs/React/src/components/layout.tsx">
         <metrics statements="28" coveredstatements="27" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="1"/>
@@ -2637,7 +2691,7 @@
       </file>
     </package>
     <package name="src.constants">
-      <metrics statements="76" coveredstatements="76" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="97" coveredstatements="76" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
       <file name="constants.ts" path="/Users/Denis/rs/React/src/constants/constants.ts">
         <metrics statements="76" coveredstatements="76" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -2716,6 +2770,30 @@
         <line num="74" count="1" type="stmt"/>
         <line num="75" count="1" type="stmt"/>
         <line num="76" count="1" type="stmt"/>
+      </file>
+      <file name="function.ts" path="/Users/Denis/rs/React/src/constants/function.ts">
+        <metrics statements="21" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.pages">
