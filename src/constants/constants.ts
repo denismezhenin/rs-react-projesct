@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export interface IProduct {
   id?: number;
   title?: string;
@@ -19,6 +21,19 @@ export interface FormInputProps {
   message: string;
 }
 
+interface AB {
+  [key: string]:
+    | string
+    | number
+    | FormDataEntryValue
+    | File
+    | boolean
+    | FileList
+    | File
+    | Blob
+    | MediaSource;
+}
+
 export interface IFormCard {
   firstName: string;
   secondName: string;
@@ -27,8 +42,8 @@ export interface IFormCard {
   birthday: string;
   agree: string;
   image: string;
-  id: number;
-  [key: string]: string | number | FormDataEntryValue | File;
+  id?: number;
+  file?: AB;
 }
 export interface IFormCardProps {
   firstName?: string;
@@ -74,3 +89,38 @@ export interface IValidatedData {
 }
 
 type MyFunction = (a: string) => boolean;
+
+export interface InputProps {
+  label: string;
+  name: string;
+  register: JSX.IntrinsicAttributes &
+    React.ClassAttributes<HTMLInputElement> &
+    React.InputHTMLAttributes<HTMLInputElement>;
+  type: string;
+  error?: boolean;
+  helperText?: string | undefined;
+  value?: string;
+  country_list?: string[];
+}
+export interface SelectProps {
+  label: string;
+  name: string;
+  register: JSX.IntrinsicAttributes &
+    React.ClassAttributes<HTMLSelectElement> &
+    React.InputHTMLAttributes<HTMLSelectElement>;
+  type?: string;
+  error?: boolean;
+  helperText?: string | undefined;
+  value?: string;
+  country_list?: string[];
+}
+
+export interface SearchFormData {
+  search: string | null;
+}
+
+export interface PopUpProps {
+  status: boolean;
+  setPopUP: (status: boolean) => void;
+  children?: ReactElement;
+}

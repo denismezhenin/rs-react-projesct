@@ -25,7 +25,7 @@ describe("router test", () => {
     const user = userEvent.setup();
     expect(screen.getByTestId("header")).toBeDefined;
     await user.click(screen.getByText("Form"));
-    expect(screen.getByText(/Country/)).toBeDefined;
+    expect(screen.getByText(/Female/)).toBeDefined;
   });
 });
 
@@ -48,24 +48,20 @@ describe("test search button", () => {
 describe("Search input tests", () => {
   it("render Search input component", () => {
     render(<SearchForm />);
-    const searchInput = screen.getByPlaceholderText(
+    const searchInput = screen.getByLabelText(
       "Search products"
     ) as HTMLInputElement;
-    expect(searchInput.placeholder).toBe("Search products");
+    expect(searchInput).toBeDefined;
   });
   it("Search input display what was written", () => {
     render(<SearchForm />);
-    const searchInput = screen.getByTestId(
-      "searchForm-input"
-    ) as HTMLInputElement;
+    const searchInput = screen.getByTestId("search") as HTMLInputElement;
     fireEvent.change(searchInput, { target: { value: "Apple" } });
     expect(searchInput.value).toBe("Apple");
   });
   it("Save Search input value in localStorage", () => {
     render(<SearchForm />);
-    const searchInput = screen.getByTestId(
-      "searchForm-input"
-    ) as HTMLInputElement;
+    const searchInput = screen.getByTestId("search") as HTMLInputElement;
     fireEvent.keyDown(searchInput, { target: { value: "Apple" } });
     expect(window.localStorage.search).toBeDefined;
   });
@@ -80,7 +76,7 @@ describe("form test", () => {
     const DateInput = screen.getByLabelText("Your birthday");
     const SexInput = screen.getByLabelText("Male");
     const checkInput = screen.getByLabelText("I consent to my personal data");
-    const fileInput = screen.getByTestId("fileInput");
+    const fileInput = screen.getByTestId("file");
     fireEvent.keyDown(FirstNameInput, { target: { value: "Dzianis" } });
     fireEvent.keyDown(SecondNameInput, { target: { value: "Miazhenin" } });
     fireEvent.change(CountryInput, { target: { value: "Belarus" } });
@@ -95,7 +91,6 @@ describe("form test", () => {
     });
     fireEvent.click(screen.getByText(/Submit/i));
     expect(CountryInput.value).to.equal("Belarus");
-    expect(screen.getByText("Is required.")).toBeDefined;
   });
 });
 

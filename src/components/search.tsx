@@ -1,38 +1,38 @@
-import { ChangeEvent, Component } from "react";
-import { MyProps } from "../constants/constants";
+import { SearchFormData } from "../constants/constants";
+import { useForm } from "react-hook-form";
+import { Input } from "./form/inputs";
 
-class SearchForm extends Component<MyProps, { value: string | null }> {
-  constructor(props: MyProps) {
-    super(props);
-    this.state = localStorage.getItem("search")
-      ? { value: localStorage.getItem("search") }
-      : { value: "" };
-  }
+const SearchForm = () => {
+  const value = localStorage.getItem("search")
+    ? localStorage.getItem("search")
+    : "";
 
-  saveToLocalStorage = (event: ChangeEvent) => {
-    if (!(event.target instanceof HTMLInputElement)) return;
-    const { target } = event;
-    const value = target.value;
-    localStorage.setItem("search", value);
-    this.setState({ value: value });
+  const { register, handleSubmit } = useForm<SearchFormData>();
+
+  const onSubmit = (data: SearchFormData) => {
+    if (data.search) {
+      localStorage.setItem("search", data.search);
+    }
   };
 
-  render() {
-    return (
-      <div className="form-wrapper">
-        <div className="form">
-          <input
-            onChange={this.saveToLocalStorage}
-            type="text"
-            placeholder="Search products"
-            value={this.state.value ? this.state.value : ""}
-            data-testid="searchForm-input"
-          />
-          <button>Search</button>
-        </div>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="form-wrapper">
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          label="Search products"
+          name="search"
+          register={{
+            ...register("search", {
+              required: "Can't search empty value",
+              value: value,
+            }),
+          }}
+          type="search"
+        />
+        <button>Search</button>
+      </form>
+    </div>
+  );
+};
 
 export default SearchForm;
