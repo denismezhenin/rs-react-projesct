@@ -1,33 +1,36 @@
-import { SearchFormData } from "../constants/constants";
-import { useForm } from "react-hook-form";
-import { Input } from "./form/inputs";
+import { ChangeEvent, useEffect, useState } from "react";
 
 const SearchForm = () => {
-  const value = localStorage.getItem("search")
-    ? localStorage.getItem("search")
-    : "";
+  const value = (
+    localStorage.getItem("search") ? localStorage.getItem("search") : ""
+  ) as string;
 
-  const { register, handleSubmit } = useForm<SearchFormData>();
+  const [state, setState] = useState(value);
 
-  const onSubmit = (data: SearchFormData) => {
-    if (data.search) {
-      localStorage.setItem("search", data.search);
-    }
+  useEffect(() => {
+    return localStorage.setItem("search", state);
+  });
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
+  const changeStateValue = (event: ChangeEvent) => {
+    if (!(event.target instanceof HTMLInputElement)) return;
+    const { target } = event;
+    const value = target.value;
+    setState(value);
   };
 
   return (
     <div className="form-wrapper">
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          label="Search products"
-          name="search"
-          register={{
-            ...register("search", {
-              required: "Can't search empty value",
-              value: value,
-            }),
-          }}
+      <form className="form" onSubmit={onSubmit}>
+        <input
+          onChange={changeStateValue}
           type="search"
+          placeholder="Search products"
+          value={state}
+          data-testid="search"
         />
         <button>Search</button>
       </form>

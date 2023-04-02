@@ -48,10 +48,10 @@ describe("test search button", () => {
 describe("Search input tests", () => {
   it("render Search input component", () => {
     render(<SearchForm />);
-    const searchInput = screen.getByLabelText(
+    const searchInput = screen.getByPlaceholderText(
       "Search products"
     ) as HTMLInputElement;
-    expect(searchInput).toBeDefined;
+    expect(searchInput.placeholder).toBe("Search products");
   });
   it("Search input display what was written", () => {
     render(<SearchForm />);
