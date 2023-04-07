@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.12% </span>
+                <span class="strong">92.1% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>39/41</span>
+                <span class='fraction'>35/38</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/6</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.12% </span>
+                <span class="strong">92.1% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>39/41</span>
+                <span class='fraction'>35/38</span>
             </div>
         
             
@@ -101,82 +101,73 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ChangeEvent, useEffect, useState } from "react";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ChangeEvent } from "react";
+import { useForm } from "react-hook-form";
+import { SearchFormData, SearchFormProps } from "../constants/constants";
 &nbsp;
-const SearchForm = () =&gt; {
-  const value = (
-    localStorage.getItem("search") ? localStorage.getItem("search") : ""
-  ) as string;
-&nbsp;
-  const [state, setState] = useState(value);
-&nbsp;
-  useEffect(() =&gt; {
-    return localStorage.setItem("search", state);
-  });
-&nbsp;
-  const onSubmit = <span class="fstat-no" title="function not covered" >(e: React.FormEvent&lt;HTMLFormElement&gt;) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
+const SearchForm = (props: SearchFormProps) =&gt; {
+  let value: string;
+  const { register, handleSubmit } = useForm&lt;SearchFormData&gt;();
+  const submitForm = <span class="fstat-no" title="function not covered" >(data: SearchFormData) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    localStorage.setItem("search", data.search);</span>
+<span class="cstat-no" title="statement not covered" >    props.setQuery(data.search);</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 &nbsp;
-  const changeStateValue = (event: ChangeEvent) =&gt; {
+  const changeStateSearchValue = (event: ChangeEvent) =&gt; {
     if (!(event.target instanceof HTMLInputElement)) <span class="branch-0 cbranch-no" title="branch not covered" >return;</span>
     const { target } = event;
-    const value = target.value;
-    setState(value);
+    value = target.value;
+    props.setSearchValue(value);
   };
 &nbsp;
   return (
     &lt;div className="form-wrapper"&gt;
-      &lt;form className="form" onSubmit={onSubmit}&gt;
+      &lt;form className="form" onSubmit={handleSubmit(submitForm)}&gt;
         &lt;input
-          onChange={changeStateValue}
           type="search"
-          placeholder="Search products"
-          value={state}
+          placeholder="Search for characters"
+          {...register("search", {
+            onChange: changeStateSearchValue,
+            value: props.searchValue,
+          })}
           data-testid="search"
         /&gt;
         &lt;button&gt;Search&lt;/button&gt;
@@ -193,7 +184,7 @@ export default SearchForm;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-02T21:15:11.550Z
+                at 2023-04-07T22:03:26.694Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

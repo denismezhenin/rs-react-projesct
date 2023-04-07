@@ -1,11 +1,12 @@
 #page_container {
   position: relative;
-  display: flex;
   flex: 1 0 auto;
+  display: flex;
   width: 100%;
   gap: 50px;
-  justify-content: center;
-
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: column;
 }
 //filter start
 
@@ -174,8 +175,6 @@ input[type="range"] {
   }
 }
 
-
-
 .card-mode {
   display: flex;
   flex-wrap: wrap;
@@ -216,6 +215,7 @@ input[type="range"] {
       position: relative;
       display: flex;
       justify-content: center;
+      margin: 10px;
       width: 291px;
       height: 182px;
 

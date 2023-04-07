@@ -6,7 +6,9 @@ export const PopUP = (props: PopUpProps) => {
       className={props.status ? "pop-up-active" : "pop-up"}
       onClick={() => props.setPopUP(false)}
     >
-      <div className="pop-up__content">{props.children}</div>
+      <div className="pop-up__content" onClick={(e) => e.stopPropagation()}>
+        {props.children}
+      </div>
     </div>
   );
 };

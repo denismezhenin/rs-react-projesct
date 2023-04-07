@@ -116,7 +116,12 @@ export interface SelectProps {
 }
 
 export interface SearchFormData {
-  search: string | null;
+  search: string;
+}
+export interface SearchFormProps {
+  setSearchValue: (value: string) => void;
+  setQuery: (value: string) => void;
+  searchValue: string;
 }
 
 export interface PopUpProps {
@@ -124,3 +129,46 @@ export interface PopUpProps {
   setPopUP: (status: boolean) => void;
   children?: ReactElement;
 }
+
+export type Character = {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  origin: {
+    name: string;
+    url: string;
+  };
+  location: {
+    name: string;
+    url: string;
+  };
+  image: string;
+  episode: [string];
+  url: string;
+  created: string;
+};
+
+export type AllCharacters = {
+  info: {
+    count: number;
+    pages: number;
+    next: string;
+    prev: string | null;
+  };
+  results: [Character];
+};
+
+export type SearchCardBigProps = {
+  id: string;
+  setPopUP: (status: boolean) => void;
+};
+
+type SearchCardPropsFunction = {
+  setChildrenID: (value: string) => void;
+  setPopUp: (status: boolean) => void;
+};
+
+export type SearchCardProp = Character & SearchCardPropsFunction;

@@ -5,29 +5,8 @@ import React from "react";
 import { describe, test, expect, it } from "vitest";
 import App from "../src/app";
 import Layout from "../src/components/layout";
-import SearchForm from "../src/components/search";
 import FormPage from "../src/pages/form";
 import FormCard from "../src/components/form/formCard";
-
-describe("router test", () => {
-  test("About page is rendering", async () => {
-    render(<App />);
-    const user = userEvent.setup();
-    expect(screen.getByTestId("header")).toBeDefined;
-    await user.click(screen.getByText(/about/i));
-    expect(screen.getByText(/This should be information about us/)).toBeDefined;
-  });
-});
-
-describe("router test", () => {
-  test("Form page is rendering", async () => {
-    render(<App />);
-    const user = userEvent.setup();
-    expect(screen.getByTestId("header")).toBeDefined;
-    await user.click(screen.getByText("Form"));
-    expect(screen.getByText(/Female/)).toBeDefined;
-  });
-});
 
 describe("test search button", () => {
   it("render search button"),
@@ -47,20 +26,20 @@ describe("test search button", () => {
 
 describe("Search input tests", () => {
   it("render Search input component", () => {
-    render(<SearchForm />);
+    render(<App />);
     const searchInput = screen.getByPlaceholderText(
-      "Search products"
+      "Search for characters"
     ) as HTMLInputElement;
-    expect(searchInput.placeholder).toBe("Search products");
+    expect(searchInput.placeholder).toBe("Search for characters");
   });
   it("Search input display what was written", () => {
-    render(<SearchForm />);
+    render(<App />);
     const searchInput = screen.getByTestId("search") as HTMLInputElement;
     fireEvent.change(searchInput, { target: { value: "Apple" } });
     expect(searchInput.value).toBe("Apple");
   });
   it("Save Search input value in localStorage", () => {
-    render(<SearchForm />);
+    render(<App />);
     const searchInput = screen.getByTestId("search") as HTMLInputElement;
     fireEvent.keyDown(searchInput, { target: { value: "Apple" } });
     expect(window.localStorage.search).toBeDefined;
@@ -114,3 +93,35 @@ describe("Form card", () => {
     expect(img.src).toContain("home.png");
   });
 });
+
+describe("router test", () => {
+  test("Form page is rendering", async () => {
+    render(<App />);
+    const user = userEvent.setup();
+    expect(screen.getByTestId("header")).toBeDefined;
+    await user.click(screen.getByText("Form"));
+    expect(screen.getByText(/Female/)).toBeDefined;
+  });
+});
+
+describe("router test", () => {
+  test("About page is rendering", async () => {
+    render(<App />);
+    const user = userEvent.setup();
+    expect(screen.getByTestId("header")).toBeDefined;
+    await user.click(screen.getByText(/about/i));
+    expect(screen.getByText(/This should be information about us/)).toBeDefined;
+  });
+});
+
+// test('landing on a bad page shows 404 page', () => {
+// 	const history = createMemoryHistory()
+// 	history.push('/some/bad/route')
+// 	const { getByRole } = render(
+// 		<Router history={history}>
+// 			<App />
+// 		</Router>,
+// 	)
+// 	expect(getByRole('heading')).toHaveTextContent('404 Not Found')
+// })
+// createMemo
