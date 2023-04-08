@@ -2,6 +2,9 @@ import { rest } from "msw";
 import { apiURL } from "../../src/utils/api";
 
 export const handlers = [
+  rest.get(`${apiURL}0`, (req, res, ctx) => {
+    return res(ctx.status(500));
+  }),
   rest.get(`${apiURL}?name=`, (req, res, ctx) => {
     return res(
       ctx.status(200),
@@ -65,9 +68,4 @@ export const handlers = [
       })
     );
   }),
-  rest.get(`${apiURL}0`, (req, res, ctx) => {
-    return res(ctx.status(500), ctx.json([]))
-  }),
 ];
-
-

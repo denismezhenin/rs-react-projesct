@@ -6,6 +6,7 @@ import { PopUP } from "../components/popUp";
 import SearchCardBig from "../components/searchCardBig";
 import { Spinner } from "../components/spinner";
 import { AllCharacters } from "../constants/constants";
+import { PAGES } from "../constants/UI";
 const MainPage = () => {
   const value = (
     localStorage.getItem("search") ? localStorage.getItem("search") : ""
@@ -59,7 +60,7 @@ const MainPage = () => {
       ) : cards ? (
         cards
       ) : isError ? (
-        <span className="error">There is no such results</span>
+        <span className="error">{PAGES.ERROR}</span>
       ) : null}
       {popUp && (
         <PopUP status={popUp} setPopUP={setPopUp}>

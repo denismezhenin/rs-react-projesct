@@ -1,4 +1,5 @@
 import { IProduct } from "../constants/constants";
+import { PRODUCT_CARD } from "../constants/UI";
 
 const Card = (props: IProduct) => {
   return (
@@ -13,12 +14,30 @@ const Card = (props: IProduct) => {
         />
       </div>
       <div className="item__information">
-        <span>Category: {props.category}</span>
-        <span>Price: {props.price}</span>
-        <span>Rating: {props.rating}</span>
-        <span>Brand: {props.brand}</span>
-        <span>Discount: {props.discountPercentage}%</span>
-        <span>Stock: {props.stock}</span>
+        <span>
+          {PRODUCT_CARD.Category}
+          {props.category}
+        </span>
+        <span>
+          {PRODUCT_CARD.Price}
+          {props.price}
+        </span>
+        <span>
+          {PRODUCT_CARD.Rating}
+          {props.rating}
+        </span>
+        <span>
+          {PRODUCT_CARD.Brand}
+          {props.brand}
+        </span>
+        <span>
+          {PRODUCT_CARD.Discount}
+          {props.discountPercentage}%
+        </span>
+        <span>
+          {PRODUCT_CARD.Stock}
+          {props.stock}
+        </span>
       </div>
       <div className="item__buttons-wrapper"></div>
     </li>

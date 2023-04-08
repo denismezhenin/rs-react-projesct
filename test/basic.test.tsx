@@ -99,7 +99,7 @@ describe("router test", () => {
     render(<App />);
     const user = userEvent.setup();
     expect(screen.getByTestId("header")).toBeDefined;
-    await user.click(screen.getByText("Form"));
+    await user.click(screen.getByText("FORM"));
     expect(screen.getByText(/Female/)).toBeDefined;
   });
 });
