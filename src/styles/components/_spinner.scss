@@ -1,0 +1,23 @@
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 10px solid $main-lighter; 
+    border-top: 10px solid $second-color-darker;
+    border-radius: 50%;
+    animation: spinnerAnimation 1.5s linear infinite;
+  }
+}
+
+
+@keyframes spinnerAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

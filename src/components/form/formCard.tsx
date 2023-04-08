@@ -1,31 +1,37 @@
-import { Component } from "react";
-import { IFormCardProps } from "../../constants/constants";
+import { IFormCard } from "../../constants/constants";
+import { USER_CARD } from "../../constants/UI";
 
-class FormCard extends Component<IFormCardProps> {
-  render() {
-    return (
-      <li className="list-tem item">
-        <span className="item__name">
-          Name:
-          {this.props.firstName} {this.props.secondName}
+const FormCard = (props: IFormCard) => {
+  return (
+    <li className="list-tem item">
+      <span className="item__name">
+        {USER_CARD.NAME}
+        {props.firstName} {props.secondName}
+      </span>
+      <span className="item__price">Sex: {props.sex}</span>
+      <div className="item__image-wrapper image-wrapper">
+        <img src={props.image} alt="product" className="image-wrapper__img" />
+      </div>
+      <div className="item__information">
+        <span>
+          {" "}
+          {USER_CARD.COUNTRY}
+          {props.country}
         </span>
-        <span className="item__price">Sex: {this.props.sex}</span>
-        <div className="item__image-wrapper image-wrapper">
-          <img
-            src={this.props.image}
-            alt="product"
-            className="image-wrapper__img"
-          />
-        </div>
-        <div className="item__information">
-          <span>Country: {this.props.country}</span>
-          <span>Birthday: {this.props.birthday}</span>
-          <span>Agreement: {this.props.agree ? "yes" : "no"}</span>
-        </div>
-        <div className="item__buttons-wrapper"></div>
-      </li>
-    );
-  }
-}
+        <span>
+          {" "}
+          {USER_CARD.BIRTHDAY}
+          {props.birthday}
+        </span>
+        <span>
+          {" "}
+          {USER_CARD.AGREE}
+          {props.agree ? "yes" : "no"}
+        </span>
+      </div>
+      <div className="item__buttons-wrapper"></div>
+    </li>
+  );
+};
 
 export default FormCard;
