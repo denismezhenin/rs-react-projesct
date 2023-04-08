@@ -114,14 +114,3 @@ describe("router test", () => {
   });
 });
 
-// test('landing on a bad page shows 404 page', () => {
-// 	const history = createMemoryHistory()
-// 	history.push('/some/bad/route')
-// 	const { getByRole } = render(
-// 		<Router history={history}>
-// 			<App />
-// 		</Router>,
-// 	)
-// 	expect(getByRole('heading')).toHaveTextContent('404 Not Found')
-// })
-// createMemo
