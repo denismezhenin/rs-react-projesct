@@ -1,13 +1,11 @@
-import { Component } from "react";
+import { PAGES } from "../constants/UI";
 
-class AboutPage extends Component {
-  render() {
-    return (
-      <div className="main">
-        <h2 className="">There is no such page</h2>
-      </div>
-    );
-  }
-}
+const AboutPage = () => {
+  return (
+    <div className="main">
+      <h2 className="">{PAGES.NO_PAGE}</h2>
+    </div>
+  );
+};
 
 export default AboutPage;
