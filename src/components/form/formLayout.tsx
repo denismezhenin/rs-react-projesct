@@ -5,6 +5,8 @@ import { Input, SelectInput } from "./inputs";
 import { useForm } from "react-hook-form";
 import { country_list } from "./countyList";
 import { PopUP } from "../popUp";
+import { useSelector, useDispatch } from "react-redux";
+import { addUserCard } from "../../store/formSlice";
 
 const FormLayout = () => {
   const {
@@ -15,7 +17,9 @@ const FormLayout = () => {
     formState: { errors },
   } = useForm<IFormCard>();
 
-  const [cards, updateCards] = useState<IFormCard[]>([]);
+  // const [cards, updateCards] = useState<IFormCard[]>([]);
+  const dispatch = useDispatch()
+  const cards = useSelector((state) => state.userCards.userCards);
   const [popUp, setPopUp] = useState(false);
 
   const onSubmit = (data: IFormCard) => {
@@ -28,9 +32,10 @@ const FormLayout = () => {
     ) {
       data.id = cards.length;
       data.image = URL.createObjectURL(file);
-      updateCards((prev) => {
-        return [...prev, data];
-      });
+      dispatch(addUserCard(data))
+      // updateCards((prev) => {
+      //   return [...prev, data];
+      // });
       setPopUp(true);
       reset();
     } else {
