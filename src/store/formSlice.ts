@@ -1,12 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IFormCard } from "../constants/constants";
+
+type userCardsState = {
+  userCards: IFormCard[];
+};
+
+const initialState: userCardsState = {
+  userCards: [],
+};
 
 const formSlice = createSlice({
   name: "userCards",
-  initialState: {
-    userCards: [],
-  },
+  initialState,
   reducers: {
-    addUserCard(state, action) {
+    addUserCard(state, action: PayloadAction<IFormCard>) {
       state.userCards.push(action.payload);
     },
   },

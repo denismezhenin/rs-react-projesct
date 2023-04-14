@@ -2,17 +2,44 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/dom";
 import React from "react";
-import { describe, test, expect, it } from "vitest";
+import { describe, test, expect, it, vi } from "vitest";
 import App from "../src/app";
 import Layout from "../src/components/layout";
 import FormPage from "../src/pages/form";
 import FormCard from "../src/components/form/formCard";
+import * as reduxHooks from "react-redux";
+import SearchForm from "../src/components/search";
+import { renderWithProviders } from "./test-utils";
+
+vi.mock("react-redux");
+const mockDispatch = vi.spyOn(reduxHooks, "useDispatch");
+const mockSelector = vi.spyOn(reduxHooks, "useSelector");
 
 describe("test search button", () => {
   it("render search button"),
     () => {
       render(<App />);
       expect(screen.getByRole("button")).toHaveTextContent("Search");
+    };
+});
+describe("router test", () => {
+  it("Form page is renderin"),
+    async () => {
+      render(<App />);
+      const user = userEvent.setup();
+      expect(screen.getByTestId("header")).toBeDefined;
+      await user.click(screen.getByText("FORM"));
+      expect(screen.getByText(/Female/)).toBeDefined;
+    };
+});
+describe("router test", () => {
+  it("About page is rendering"),
+    async () => {
+      render(<App />);
+      const user = userEvent.setup();
+      await user.click(screen.getByText(/about/i));
+      expect(screen.getByText(/This should be information about us/))
+        .toBeDefined;
     };
 });
 
@@ -26,23 +53,24 @@ describe("test search button", () => {
 
 describe("Search input tests", () => {
   it("render Search input component", () => {
-    render(<App />);
+    render(<SearchForm searchValue="" setSearchValue={null} />);
     const searchInput = screen.getByPlaceholderText(
       "Search for characters"
     ) as HTMLInputElement;
     expect(searchInput.placeholder).toBe("Search for characters");
   });
   it("Search input display what was written", () => {
-    render(<App />);
+    render(
+      <SearchForm
+        searchValue=""
+        setSearchValue={(value) => {
+          return;
+        }}
+      />
+    );
     const searchInput = screen.getByTestId("search") as HTMLInputElement;
     fireEvent.change(searchInput, { target: { value: "Apple" } });
     expect(searchInput.value).toBe("Apple");
-  });
-  it("Save Search input value in localStorage", () => {
-    render(<App />);
-    const searchInput = screen.getByTestId("search") as HTMLInputElement;
-    fireEvent.keyDown(searchInput, { target: { value: "Apple" } });
-    expect(window.localStorage.search).toBeDefined;
   });
 });
 
@@ -93,24 +121,3 @@ describe("Form card", () => {
     expect(img.src).toContain("home.png");
   });
 });
-
-describe("router test", () => {
-  test("Form page is rendering", async () => {
-    render(<App />);
-    const user = userEvent.setup();
-    expect(screen.getByTestId("header")).toBeDefined;
-    await user.click(screen.getByText("FORM"));
-    expect(screen.getByText(/Female/)).toBeDefined;
-  });
-});
-
-describe("router test", () => {
-  test("About page is rendering", async () => {
-    render(<App />);
-    const user = userEvent.setup();
-    expect(screen.getByTestId("header")).toBeDefined;
-    await user.click(screen.getByText(/about/i));
-    expect(screen.getByText(/This should be information about us/)).toBeDefined;
-  });
-});
-

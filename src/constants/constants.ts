@@ -120,7 +120,6 @@ export interface SearchFormData {
 }
 export interface SearchFormProps {
   setSearchValue: (value: string) => void;
-  setQuery: (value: string) => void;
   searchValue: string;
 }
 

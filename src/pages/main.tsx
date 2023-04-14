@@ -8,20 +8,18 @@ import { Spinner } from "../components/spinner";
 import { AllCharacters } from "../constants/constants";
 import { PAGES } from "../constants/UI";
 import { useGetCharactersQuery } from "../store/API";
+import { useAppSelector } from "../store/reduxHooks";
 const MainPage = () => {
-  const value = (
-    localStorage.getItem("search") ? localStorage.getItem("search") : ""
-  ) as string;
   // const [data, setData] = useState<AllCharacters>();
-  const [searchValue, setSearchValue] = useState(value);
   // const [isError, setIsError] = useState(false);
   // const [isLoading, setIsLoading] = useState(true);
-  const [query, setQuery] = useState(value);
+  // const [query, setQuery] = useState(value);
   const [childrenId, setChildrenID] = useState("0");
   const [popUp, setPopUp] = useState(false);
-
+  
+  const query = useAppSelector((state) => state.searchValue.searchValue);
   const { data, isLoading, isError } = useGetCharactersQuery(query);
-  console.log(data);
+  const [searchValue, setSearchValue] = useState(query);
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -55,9 +53,9 @@ const MainPage = () => {
   return (
     <>
       <SearchForm
-        setSearchValue={setSearchValue}
-        setQuery={setQuery}
-        searchValue={searchValue}
+        // setSearchValue={setSearchValue}
+        // setQuery={setQuery}
+        searchValue={query}
       />
       {isLoading ? (
         <Spinner />

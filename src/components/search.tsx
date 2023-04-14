@@ -1,13 +1,17 @@
 import { ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
 import { SearchFormData, SearchFormProps } from "../constants/constants";
+import { useAppDispatch } from "../store/reduxHooks";
+import { setStateSearchValue } from "../store/searchSlice";
 
 const SearchForm = (props: SearchFormProps) => {
   let value: string;
   const { register, handleSubmit } = useForm<SearchFormData>();
+  const dispatch = useAppDispatch();
+
   const submitForm = (data: SearchFormData) => {
     localStorage.setItem("search", data.search);
-    props.setQuery(data.search);
+    dispatch(setStateSearchValue(data.search));
   };
 
   const changeStateSearchValue = (event: ChangeEvent) => {
@@ -24,7 +28,7 @@ const SearchForm = (props: SearchFormProps) => {
           type="search"
           placeholder="Search for characters"
           {...register("search", {
-            onChange: changeStateSearchValue,
+            // onChange: changeStateSearchValue,
             value: props.searchValue,
           })}
           data-testid="search"
