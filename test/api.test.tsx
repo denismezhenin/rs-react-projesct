@@ -17,7 +17,7 @@ describe("Character big card", () => {
 describe("Main page", () => {
   it("renders small character cards correctly", async () => {
     renderWithProviders(<MainPage />);
-    await screen.findByText(/Toxic Rick/)
+    await screen.findByText(/Toxic Rick/);
     expect(await screen.findByText(/Toxic Rick/)).toBeDefined();
   });
 });

@@ -5,7 +5,6 @@ import { Input, SelectInput } from "./inputs";
 import { useForm } from "react-hook-form";
 import { country_list } from "./countyList";
 import { PopUP } from "../popUp";
-// import { useSelector, useDispatch } from "react-redux";
 import { addUserCard } from "../../store/formSlice";
 import { useAppDispatch, useAppSelector } from "../../store/reduxHooks";
 
@@ -18,7 +17,6 @@ const FormLayout = () => {
     formState: { errors },
   } = useForm<IFormCard>();
 
-  // const [cards, updateCards] = useState<IFormCard[]>([]);
   const dispatch = useAppDispatch();
   const cards = useAppSelector((state) => state.userCards.userCards);
   const [popUp, setPopUp] = useState(false);
@@ -35,9 +33,6 @@ const FormLayout = () => {
       delete data.file;
       data.image = URL.createObjectURL(file);
       dispatch(addUserCard(data));
-      // updateCards((prev) => {
-      //   return [...prev, data];
-      // });
       setPopUp(true);
       reset();
     } else {

@@ -1,32 +1,10 @@
-import { getCharacterByID } from "../utils/api";
-import { useEffect, useState } from "react";
 import { Spinner } from "./spinner";
-import { Character, SearchCardBigProps } from "../constants/constants";
+import { SearchCardBigProps } from "../constants/constants";
 import { PAGES, SEARCH_CARD } from "../constants/UI";
 import { useGetParticularCharacterQuery } from "../store/API";
 
 const SearchCardBig = (props: SearchCardBigProps) => {
-  // const [isError, setIsError] = useState(false);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [card, setCard] = useState<Character>();
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       setIsError(false);
-  //       const data = await getCharacterByID(props.id);
-  //       setCard(data);
-  //     } catch (err) {
-  //       setIsError(true);
-  //     }
-  //     setIsLoading(false);
-  //   };
-  //   fetchData();
-  // });
-
   const { data, isLoading, isError } = useGetParticularCharacterQuery(props.id);
-  // const card = null
-  // console.log(data)
 
   return (
     <>

@@ -1,6 +1,6 @@
 import formReducer, { addUserCard } from "../src/store/formSlice";
 import searchReducer, { setStateSearchValue } from "../src/store/searchSlice";
-import { describe, test, expect, it } from "vitest";
+import { describe, expect, it } from "vitest";
 
 const userCard = {
   firstName: "Pit",
@@ -12,8 +12,6 @@ const userCard = {
   image: "new-image.jpg",
   id: 1,
 };
-
-// const userCards = []
 
 const initialState = {
   userCards: [],

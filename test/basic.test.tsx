@@ -9,7 +9,6 @@ import FormPage from "../src/pages/form";
 import FormCard from "../src/components/form/formCard";
 import * as reduxHooks from "react-redux";
 import SearchForm from "../src/components/search";
-import { renderWithProviders } from "./test-utils";
 
 vi.mock("react-redux");
 const mockDispatch = vi.spyOn(reduxHooks, "useDispatch");
@@ -53,21 +52,14 @@ describe("test search button", () => {
 
 describe("Search input tests", () => {
   it("render Search input component", () => {
-    render(<SearchForm searchValue="" setSearchValue={null} />);
+    render(<SearchForm searchValue="" />);
     const searchInput = screen.getByPlaceholderText(
       "Search for characters"
     ) as HTMLInputElement;
     expect(searchInput.placeholder).toBe("Search for characters");
   });
   it("Search input display what was written", () => {
-    render(
-      <SearchForm
-        searchValue=""
-        setSearchValue={(value) => {
-          return;
-        }}
-      />
-    );
+    render(<SearchForm searchValue="" />);
     const searchInput = screen.getByTestId("search") as HTMLInputElement;
     fireEvent.change(searchInput, { target: { value: "Apple" } });
     expect(searchInput.value).toBe("Apple");
