@@ -9,6 +9,9 @@ import FormPage from "../src/pages/form";
 import FormCard from "../src/components/form/formCard";
 import * as reduxHooks from "react-redux";
 import SearchForm from "../src/components/search";
+import FormLayout from "../src/components/form/formLayout";
+import * as searchActions from "../src/store/searchSlice";
+import * as formActions from "../src/store/formSlice";
 
 vi.mock("react-redux");
 const mockDispatch = vi.spyOn(reduxHooks, "useDispatch");
@@ -20,13 +23,23 @@ describe("test search button", () => {
       render(<App />);
       expect(screen.getByRole("button")).toHaveTextContent("Search");
     };
+  it("render search input with value from redux store"),
+    () => {
+      mockSelector.mockReturnValue("rick");
+      render(<App />);
+      expect(screen.getByRole("button")).toHaveTextContent("rick");
+    };
 });
+
 describe("router test", () => {
-  it("Form page is renderin"),
+  it("Form page is rendering"),
     async () => {
       render(<App />);
       const user = userEvent.setup();
       expect(screen.getByTestId("header")).toBeDefined;
+      expect(screen.getByText("2023")).toBeDefined;
+      expect(screen.getByRole("footer")).toBeDefined;
+      expect(screen.getByRole("header")).toBeDefined;
       await user.click(screen.getByText("FORM"));
       expect(screen.getByText(/Female/)).toBeDefined;
     };
@@ -41,6 +54,16 @@ describe("router test", () => {
         .toBeDefined;
     };
 });
+// describe("Test App component ", () => {
+//   it("should use a dispatch"),
+//     async () => {
+//       render(<SearchForm />);
+//       const user = userEvent.setup();
+//       await user.click(screen.getByText(/about/i));
+//       expect(screen.getByText(/This should be information about us/))
+//         .toBeDefined;
+//     };
+// });
 
 describe("test search button", () => {
   it("render NavLink"),
@@ -63,6 +86,18 @@ describe("Search input tests", () => {
     const searchInput = screen.getByTestId("search") as HTMLInputElement;
     fireEvent.change(searchInput, { target: { value: "Apple" } });
     expect(searchInput.value).toBe("Apple");
+  });
+  it("should use a dispatch in component", () => {
+    const dispatch = vi.fn();
+    const mockSetSearchValue = vi.spyOn(searchActions, "setStateSearchValue");
+    mockDispatch.mockReturnValue(dispatch);
+    render(<SearchForm searchValue="" />);
+    const searchInput = screen.getByTestId("search") as HTMLInputElement;
+    fireEvent.change(searchInput, { target: { value: "rick" } });
+    expect(searchInput.value).toBe("rick");
+    fireEvent.click(screen.getByRole("button"));
+    expect(dispatch).toHaveBeenCalled;
+    expect(mockSetSearchValue).toHaveBeenCalled
   });
 });
 
@@ -93,17 +128,18 @@ describe("form test", () => {
   });
 });
 
-describe("Form card", () => {
-  it("renders form data correctly", () => {
-    const mockUser = {
-      firstName: "Dzianis",
-      secondName: "Miazhenin",
-      country: "Belarus",
-      sex: "male",
-      birthday: "2023-03-22",
-      agree: "yes",
-      image: "home.png",
-    };
+describe("Form page", () => {
+  const mockUser = {
+    firstName: "Dzianis",
+    secondName: "Miazhenin",
+    country: "Belarus",
+    sex: "male",
+    birthday: "2023-03-22",
+    agree: "yes",
+    image: "home.png",
+  };
+  const mockState = [mockUser];
+  it("renders form card correctly", () => {
     render(<FormCard {...mockUser} />);
     expect(screen.getByText(/Dzianis/)).toBeDefined;
     expect(screen.getByText(/Country: Belarus/)).toBeDefined;
@@ -111,5 +147,23 @@ describe("Form card", () => {
     expect(screen.getByText(/Sex: male/)).toBeDefined;
     const img = screen.getByRole("img") as HTMLImageElement;
     expect(img.src).toContain("home.png");
+  });
+  it("renders form page with a card from a redux store correctly", () => {
+    mockSelector.mockReturnValue(mockState);
+    render(<FormLayout />);
+    expect(screen.findByText(/Dzianis/)).toBeDefined;
+    expect(screen.findByText(/Country: Belarus/)).toBeDefined;
+    expect(screen.findByText(/Birthday: 2023-03-22/)).toBeDefined;
+    expect(screen.findByText(/Sex: male/)).toBeDefined;
+    expect(screen.findByAltText(/Dzianis/)).toBeDefined;
+  });
+  it("use dispatch  correctly", () => {
+    const dispatch = vi.fn();
+    const mockAddUserCard = vi.spyOn(formActions, "addUserCard");
+    mockDispatch.mockReturnValue(dispatch);
+    render(<FormLayout />);
+    fireEvent.click(screen.getByText(/Submit/i));
+    expect(dispatch).toHaveBeenCalled;
+    expect(mockAddUserCard).toHaveBeenCalled;
   });
 });

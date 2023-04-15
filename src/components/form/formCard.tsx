@@ -10,7 +10,11 @@ const FormCard = (props: IFormCard) => {
       </span>
       <span className="item__price">Sex: {props.sex}</span>
       <div className="item__image-wrapper image-wrapper">
-        <img src={props.image} alt="product" className="image-wrapper__img" />
+        <img
+          src={props.image}
+          alt={props.firstName}
+          className="image-wrapper__img"
+        />
       </div>
       <div className="item__information">
         <span>

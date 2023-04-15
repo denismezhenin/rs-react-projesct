@@ -8,7 +8,6 @@ const SearchForm = (props: SearchFormProps) => {
   const dispatch = useAppDispatch();
 
   const submitForm = (data: SearchFormData) => {
-    localStorage.setItem("search", data.search);
     dispatch(setStateSearchValue(data.search));
   };
 

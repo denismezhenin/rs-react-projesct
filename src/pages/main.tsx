@@ -10,7 +10,6 @@ import { useAppSelector } from "../store/reduxHooks";
 const MainPage = () => {
   const [childrenId, setChildrenID] = useState("0");
   const [popUp, setPopUp] = useState(false);
-
   const query = useAppSelector((state) => state.searchValue.searchValue);
   const { data, isLoading, isError } = useGetCharactersQuery(query);
 
