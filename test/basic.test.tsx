@@ -2,11 +2,20 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/dom";
 import React from "react";
-import { describe, test, expect, it } from "vitest";
+import { describe, test, expect, it, vi } from "vitest";
 import App from "../src/app";
 import Layout from "../src/components/layout";
 import FormPage from "../src/pages/form";
 import FormCard from "../src/components/form/formCard";
+import * as reduxHooks from "react-redux";
+import SearchForm from "../src/components/search";
+import FormLayout from "../src/components/form/formLayout";
+import * as searchActions from "../src/store/searchSlice";
+import * as formActions from "../src/store/formSlice";
+
+vi.mock("react-redux");
+const mockDispatch = vi.spyOn(reduxHooks, "useDispatch");
+const mockSelector = vi.spyOn(reduxHooks, "useSelector");
 
 describe("test search button", () => {
   it("render search button"),
@@ -14,7 +23,47 @@ describe("test search button", () => {
       render(<App />);
       expect(screen.getByRole("button")).toHaveTextContent("Search");
     };
+  it("render search input with value from redux store"),
+    () => {
+      mockSelector.mockReturnValue("rick");
+      render(<App />);
+      expect(screen.getByRole("button")).toHaveTextContent("rick");
+    };
 });
+
+describe("router test", () => {
+  it("Form page is rendering"),
+    async () => {
+      render(<App />);
+      const user = userEvent.setup();
+      expect(screen.getByTestId("header")).toBeDefined;
+      expect(screen.getByText("2023")).toBeDefined;
+      expect(screen.getByRole("footer")).toBeDefined;
+      expect(screen.getByRole("header")).toBeDefined;
+      await user.click(screen.getByText("FORM"));
+      expect(screen.getByText(/Female/)).toBeDefined;
+    };
+});
+describe("router test", () => {
+  it("About page is rendering"),
+    async () => {
+      render(<App />);
+      const user = userEvent.setup();
+      await user.click(screen.getByText(/about/i));
+      expect(screen.getByText(/This should be information about us/))
+        .toBeDefined;
+    };
+});
+// describe("Test App component ", () => {
+//   it("should use a dispatch"),
+//     async () => {
+//       render(<SearchForm />);
+//       const user = userEvent.setup();
+//       await user.click(screen.getByText(/about/i));
+//       expect(screen.getByText(/This should be information about us/))
+//         .toBeDefined;
+//     };
+// });
 
 describe("test search button", () => {
   it("render NavLink"),
@@ -26,23 +75,29 @@ describe("test search button", () => {
 
 describe("Search input tests", () => {
   it("render Search input component", () => {
-    render(<App />);
+    render(<SearchForm searchValue="" />);
     const searchInput = screen.getByPlaceholderText(
       "Search for characters"
     ) as HTMLInputElement;
     expect(searchInput.placeholder).toBe("Search for characters");
   });
   it("Search input display what was written", () => {
-    render(<App />);
+    render(<SearchForm searchValue="" />);
     const searchInput = screen.getByTestId("search") as HTMLInputElement;
     fireEvent.change(searchInput, { target: { value: "Apple" } });
     expect(searchInput.value).toBe("Apple");
   });
-  it("Save Search input value in localStorage", () => {
-    render(<App />);
+  it("should use a dispatch in component", () => {
+    const dispatch = vi.fn();
+    const mockSetSearchValue = vi.spyOn(searchActions, "setStateSearchValue");
+    mockDispatch.mockReturnValue(dispatch);
+    render(<SearchForm searchValue="" />);
     const searchInput = screen.getByTestId("search") as HTMLInputElement;
-    fireEvent.keyDown(searchInput, { target: { value: "Apple" } });
-    expect(window.localStorage.search).toBeDefined;
+    fireEvent.change(searchInput, { target: { value: "rick" } });
+    expect(searchInput.value).toBe("rick");
+    fireEvent.click(screen.getByRole("button"));
+    expect(dispatch).toHaveBeenCalled;
+    expect(mockSetSearchValue).toHaveBeenCalled
   });
 });
 
@@ -73,17 +128,18 @@ describe("form test", () => {
   });
 });
 
-describe("Form card", () => {
-  it("renders form data correctly", () => {
-    const mockUser = {
-      firstName: "Dzianis",
-      secondName: "Miazhenin",
-      country: "Belarus",
-      sex: "male",
-      birthday: "2023-03-22",
-      agree: "yes",
-      image: "home.png",
-    };
+describe("Form page", () => {
+  const mockUser = {
+    firstName: "Dzianis",
+    secondName: "Miazhenin",
+    country: "Belarus",
+    sex: "male",
+    birthday: "2023-03-22",
+    agree: "yes",
+    image: "home.png",
+  };
+  const mockState = [mockUser];
+  it("renders form card correctly", () => {
     render(<FormCard {...mockUser} />);
     expect(screen.getByText(/Dzianis/)).toBeDefined;
     expect(screen.getByText(/Country: Belarus/)).toBeDefined;
@@ -92,25 +148,22 @@ describe("Form card", () => {
     const img = screen.getByRole("img") as HTMLImageElement;
     expect(img.src).toContain("home.png");
   });
-});
-
-describe("router test", () => {
-  test("Form page is rendering", async () => {
-    render(<App />);
-    const user = userEvent.setup();
-    expect(screen.getByTestId("header")).toBeDefined;
-    await user.click(screen.getByText("FORM"));
-    expect(screen.getByText(/Female/)).toBeDefined;
+  it("renders form page with a card from a redux store correctly", () => {
+    mockSelector.mockReturnValue(mockState);
+    render(<FormLayout />);
+    expect(screen.findByText(/Dzianis/)).toBeDefined;
+    expect(screen.findByText(/Country: Belarus/)).toBeDefined;
+    expect(screen.findByText(/Birthday: 2023-03-22/)).toBeDefined;
+    expect(screen.findByText(/Sex: male/)).toBeDefined;
+    expect(screen.findByAltText(/Dzianis/)).toBeDefined;
+  });
+  it("use dispatch  correctly", () => {
+    const dispatch = vi.fn();
+    const mockAddUserCard = vi.spyOn(formActions, "addUserCard");
+    mockDispatch.mockReturnValue(dispatch);
+    render(<FormLayout />);
+    fireEvent.click(screen.getByText(/Submit/i));
+    expect(dispatch).toHaveBeenCalled;
+    expect(mockAddUserCard).toHaveBeenCalled;
   });
 });
-
-describe("router test", () => {
-  test("About page is rendering", async () => {
-    render(<App />);
-    const user = userEvent.setup();
-    expect(screen.getByTestId("header")).toBeDefined;
-    await user.click(screen.getByText(/about/i));
-    expect(screen.getByText(/This should be information about us/)).toBeDefined;
-  });
-});
-
