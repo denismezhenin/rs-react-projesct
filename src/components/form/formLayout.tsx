@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IFormCard } from "../../constants/constants";
-import FormCard from "./formCard";
+import { FormCard } from "./formCard";
 import { Input, SelectInput } from "./inputs";
 import { useForm } from "react-hook-form";
 import { country_list } from "./countyList";
@@ -8,7 +8,7 @@ import { PopUP } from "../popUp";
 import { addUserCard } from "../../store/formSlice";
 import { useAppDispatch, useAppSelector } from "../../store/reduxHooks";
 
-const FormLayout = () => {
+export const FormLayout = () => {
   const {
     register,
     handleSubmit,
@@ -167,5 +167,3 @@ const FormLayout = () => {
     </>
   );
 };
-
-export default FormLayout;

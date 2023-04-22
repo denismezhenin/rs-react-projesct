@@ -1,7 +1,7 @@
 import { IProduct } from "../constants/constants";
 import { PRODUCT_CARD } from "../constants/UI";
 
-const Card = (props: IProduct) => {
+export const Card = (props: IProduct) => {
   return (
     <li className="list-tem item">
       <span className="item__name">{props.title}</span>
@@ -44,4 +44,3 @@ const Card = (props: IProduct) => {
   );
 };
 
-export default Card;

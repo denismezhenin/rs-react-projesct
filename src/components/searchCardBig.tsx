@@ -3,7 +3,7 @@ import { SearchCardBigProps } from "../constants/constants";
 import { PAGES, SEARCH_CARD } from "../constants/UI";
 import { useGetParticularCharacterQuery } from "../store/API";
 
-const SearchCardBig = (props: SearchCardBigProps) => {
+export const SearchCardBig = (props: SearchCardBigProps) => {
   const { data, isLoading, isError } = useGetParticularCharacterQuery(props.id);
 
   return (
@@ -49,4 +49,3 @@ const SearchCardBig = (props: SearchCardBigProps) => {
   );
 };
 
-export default SearchCardBig;

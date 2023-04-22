@@ -1,6 +1,6 @@
 import { SearchCardProp } from "../constants/constants";
 
-const SearchCard = (props: SearchCardProp) => {
+export const SearchCard = (props: SearchCardProp) => {
   const handleSubmit = () => {
     props.setChildrenID(String(props.id));
     props.setPopUp(true);
@@ -15,5 +15,3 @@ const SearchCard = (props: SearchCardProp) => {
     </li>
   );
 };
-
-export default SearchCard;

@@ -3,7 +3,7 @@ import { SearchFormData, SearchFormProps } from "../constants/constants";
 import { useAppDispatch } from "../store/reduxHooks";
 import { setStateSearchValue } from "../store/searchSlice";
 
-const SearchForm = (props: SearchFormProps) => {
+export const SearchForm = (props: SearchFormProps) => {
   const { register, handleSubmit } = useForm<SearchFormData>();
   const dispatch = useAppDispatch();
 
@@ -28,4 +28,4 @@ const SearchForm = (props: SearchFormProps) => {
   );
 };
 
-export default SearchForm;
+

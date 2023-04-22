@@ -1,9 +1,132 @@
+
 {
   "compilerOptions": {
+    "baseUrl": "/",
     "composite": true,
-    "module": "ESNext",
+    "alwaysStrict": true,
+    "outDir": "./dist",
+    "target": "ESNext",
+    "module": "esnext",
+    // "lib": ["ESNext", "DOM"],
+    "esModuleInterop": true,
+    "allowJs": true,
+    "checkJs": false,
+    "strict": true,
+    "strictNullChecks": true,
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "declaration": false,
+    "declarationMap": false,
+    "stripInternal": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": false,
+    "removeComments": false,
+    "jsx": "react-jsx",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "incremental": false,
   },
-  "include": ["vite.config.ts"]
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true
+  },
+  "types": [
+    "vite/client"
+  ],
+  "include": ["./src"],
+  "exclude": ["./src/vue/*", "./src/react/*", "./src/utils/*"],
+  "paths": {
+    "@/*": [
+      "src/*"
+    ],
+    "*": [
+      "*",
+      "src/*"
+    ]
+  }
 }
+
+// {"compilerOptions": {
+//   "baseUrl": ".",
+//   "allowJs": true,
+//   "alwaysStrict": true,
+//   "allowSyntheticDefaultImports": true,
+//   "checkJs": false,
+//   "declaration": false,
+//   "declarationMap": false,
+//   "esModuleInterop": true,
+//   "forceConsistentCasingInFileNames": true,
+//   "incremental": false,
+//   "resolveJsonModule": true,
+//   "jsx": "react-jsx",
+//   "lib": [
+//     "DOM",
+//     "DOM.Iterable",
+//     "ESNext"
+//   ],
+//   "strict": true,
+//   "outDir": "./dist",
+//   "module": "ESNext",
+//   "moduleResolution": "node",
+//   "skipLibCheck": true,
+//   "sourceMap": false,
+//   "target": "ESNext",
+//   "types": [
+//     "vite/client"
+//   ],
+//   //   "ts-node": {
+//   //   "esm": true,
+//   //   "experimentalSpecifierResolution": "node",
+//   //   "transpileOnly": true
+//   // },
+//   "paths": {
+//     "@/*": [
+//       "src/*"
+//     ],
+//     "*": [
+//       "*",
+//       "src/*"
+//     ]
+//   }
+// },}
+
+// "compileroptions":
+// "baseUrl":
+// /
+// "allowJs": true,
+// "alwaysStrict": true,
+// "allowSyntheticDefaultImports":
+// true" checkJs", false,
+// "declaration": false,
+// "declarationMap": false,
+// "esModuleInterop": true,
+// "forceConsistentCasingInFileNames" true,
+// "incremental": false,
+// "resolveJsonModule": true,
+// "jsx"
+// "react-isx"
+// "lib": I
+// "DOM"
+// "DOM. Iterable"
+// "ESNext"
+// ].
+// "strict": true,
+// "outDir":
+// "dist"
+// "module": "ESNext"
+// "moduleResolution": "node"
+// "skipLibcheck": true,
+// "sourceMap": false,
+// "target":
+// "ESNext"
+// "types": [
+// "vite/client"
+// ], "paths":
+// " @ /*" : 1 "src/*"

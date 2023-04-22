@@ -54,16 +54,6 @@ describe("router test", () => {
         .toBeDefined;
     };
 });
-// describe("Test App component ", () => {
-//   it("should use a dispatch"),
-//     async () => {
-//       render(<SearchForm />);
-//       const user = userEvent.setup();
-//       await user.click(screen.getByText(/about/i));
-//       expect(screen.getByText(/This should be information about us/))
-//         .toBeDefined;
-//     };
-// });
 
 describe("test search button", () => {
   it("render NavLink"),

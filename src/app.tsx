@@ -1,15 +1,18 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import MainPage from "./pages/main";
-import AboutPage from "./pages/about";
-import NotFound from "./pages/404";
-import FormPage from "./pages/form";
-import Layout from "./components/layout";
+import {MainPage} from "./pages/main";
+import {AboutPage} from "./pages/about";
+import {NotFound} from "./pages/404";
+import {FormPage} from "./pages/form";
+import {Layout} from "./components/layout";
 
-const App = () => {
+export const App = () => {
   return (
-    <BrowserRouter>
-      <>
-        <Routes>
+    // <html>
+    //   <head>
+    //     <title>Server Rendered App</title>
+    //   </head>
+    //   <body>
+      <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<MainPage />} />
             <Route path="about" element={<AboutPage />} />
@@ -17,9 +20,9 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-      </>
-    </BrowserRouter>
+
+    //   </body>
+    // </html>
   );
 };
 
-export default App;

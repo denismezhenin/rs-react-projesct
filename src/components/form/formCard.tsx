@@ -1,7 +1,7 @@
 import { IFormCard } from "../../constants/constants";
 import { USER_CARD } from "../../constants/UI";
 
-const FormCard = (props: IFormCard) => {
+export const FormCard = (props: IFormCard) => {
   return (
     <li className="list-tem item">
       <span className="item__name">
@@ -38,4 +38,3 @@ const FormCard = (props: IFormCard) => {
   );
 };
 
-export default FormCard;
