@@ -3,13 +3,13 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/dom";
 import React from "react";
 import { describe, test, expect, it, vi } from "vitest";
-import App from "../src/app";
-import Layout from "../src/components/layout";
-import FormPage from "../src/pages/form";
-import FormCard from "../src/components/form/formCard";
+import { App } from "../src/app";
+import { Layout } from "../src/components/layout";
+import { FormPage } from "../src/pages/form";
+import { FormCard } from "../src/components/form/formCard";
 import * as reduxHooks from "react-redux";
-import SearchForm from "../src/components/search";
-import FormLayout from "../src/components/form/formLayout";
+import { SearchForm } from "../src/components/search";
+import { FormLayout } from "../src/components/form/formLayout";
 import * as searchActions from "../src/store/searchSlice";
 import * as formActions from "../src/store/formSlice";
 
@@ -87,7 +87,7 @@ describe("Search input tests", () => {
     expect(searchInput.value).toBe("rick");
     fireEvent.click(screen.getByRole("button"));
     expect(dispatch).toHaveBeenCalled;
-    expect(mockSetSearchValue).toHaveBeenCalled
+    expect(mockSetSearchValue).toHaveBeenCalled;
   });
 });
 

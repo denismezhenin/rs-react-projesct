@@ -27,5 +27,3 @@ export const SearchForm = (props: SearchFormProps) => {
     </div>
   );
 };
-
-

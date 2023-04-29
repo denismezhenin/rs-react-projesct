@@ -7,10 +7,6 @@ import {
 import { AllCharacters, Character } from "../constants/constants";
 import { apiURL } from "../utils/api";
 
-import * as iFetch from "isomorphic-fetch";
-// const fetch = iFetch;
-
-
 const createApi = buildCreateApi(
   coreModule(),
   reactHooksModule({ unstable__sideEffectsInRender: true })
@@ -18,7 +14,7 @@ const createApi = buildCreateApi(
 
 export const characterAPI = createApi({
   reducerPath: "characterAPI",
-  baseQuery: fetchBaseQuery({ baseUrl: apiURL, fetchFn: iFetch }),
+  baseQuery: fetchBaseQuery({ baseUrl: apiURL }),
   endpoints: (build) => ({
     getCharacters: build.query<AllCharacters, string>({
       query: (value: string) => `?name=${value}`,

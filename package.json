@@ -16,7 +16,7 @@
     "coverage": "vitest run --coverage ",
     "test": "vitest",
     "cypress": "cypress open",
-    "test:cypress": "start-server-and-test dev http://http://localhost:3001 cypress"
+    "cy:report": "npx nyc report && npx ус report --reporter=text-summary"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
@@ -45,8 +45,8 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/isomorphic-fetch": "^0.0.36",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.1",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
     "@vitejs/plugin-react": "^3.1.0",

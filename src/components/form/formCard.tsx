@@ -37,4 +37,3 @@ export const FormCard = (props: IFormCard) => {
     </li>
   );
 };
-

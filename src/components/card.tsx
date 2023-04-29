@@ -43,4 +43,3 @@ export const Card = (props: IProduct) => {
     </li>
   );
 };
-

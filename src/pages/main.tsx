@@ -7,6 +7,7 @@ import { Spinner } from "../components/spinner";
 import { PAGES } from "../constants/UI";
 import { useGetCharactersQuery } from "../store/API";
 import { useAppSelector } from "../store/reduxHooks";
+
 export const MainPage = () => {
   const [childrenId, setChildrenID] = useState("0");
   const [popUp, setPopUp] = useState(false);
