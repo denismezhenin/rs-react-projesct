@@ -1,9 +1,39 @@
 {
   "compilerOptions": {
+    "baseUrl": "/",
     "composite": true,
-    "module": "ESNext",
+    "alwaysStrict": true,
+    "outDir": "./dist",
+    "target": "ESNext",
+    "module": "esnext",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "checkJs": false,
+    "strict": true,
+    "strictNullChecks": true,
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "declarationMap": false,
+    "stripInternal": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": false,
+    "removeComments": false,
+    "jsx": "react-jsx",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "incremental": false,
+    "types": ["node", "vite/client"]
   },
-  "include": ["vite.config.ts"]
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true
+  },
+  "include": ["./src"],
 }

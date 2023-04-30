@@ -1,8 +1,8 @@
 import "@testing-library/dom";
 import React from "react";
 import { describe, test, expect, it } from "vitest";
-import SearchCardBig from "../src/components/searchCardBig";
-import MainPage from "../src/pages/main";
+import { SearchCardBig } from "../src/components/searchCardBig";
+import { MainPage } from "../src/pages/main";
 import { cleanup } from "@testing-library/react";
 import { renderWithProviders } from "./test-utils";
 import { screen } from "@testing-library/react";

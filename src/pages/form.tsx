@@ -1,11 +1,9 @@
-import FormLayout from "../components/form/formLayout";
+import { FormLayout } from "../components/form/formLayout";
 
-const FormPage = () => {
+export const FormPage = () => {
   return (
     <div className="main">
       <FormLayout />
     </div>
   );
 };
-
-export default FormPage;

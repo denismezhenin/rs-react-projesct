@@ -1,11 +1,9 @@
 import { FOOTER } from "../constants/UI";
 
-const Footer = () => {
+export const Footer = () => {
   return (
-    <div id="footer_container" className="footer">
+    <footer id="footer_container" className="footer">
       <span className="footer-info">{FOOTER.YEAR}</span>
-    </div>
+    </footer>
   );
 };
-
-export default Footer;

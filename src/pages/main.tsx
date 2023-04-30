@@ -1,13 +1,14 @@
-import SearchForm from "../components/search";
+import { SearchForm } from "../components/search";
 import { useState } from "react";
-import SearchCard from "../components/searchCard";
+import { SearchCard } from "../components/searchCard";
 import { PopUP } from "../components/popUp";
-import SearchCardBig from "../components/searchCardBig";
+import { SearchCardBig } from "../components/searchCardBig";
 import { Spinner } from "../components/spinner";
 import { PAGES } from "../constants/UI";
 import { useGetCharactersQuery } from "../store/API";
 import { useAppSelector } from "../store/reduxHooks";
-const MainPage = () => {
+
+export const MainPage = () => {
   const [childrenId, setChildrenID] = useState("0");
   const [popUp, setPopUp] = useState(false);
   const query = useAppSelector((state) => state.searchValue.searchValue);
@@ -44,5 +45,3 @@ const MainPage = () => {
     </>
   );
 };
-
-export default MainPage;
