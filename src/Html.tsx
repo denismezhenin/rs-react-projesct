@@ -1,11 +1,4 @@
-import { PreloadedState } from "@reduxjs/toolkit";
-import { ReactNode } from "react";
-import { RootState } from "../src/store/index";
-
-interface HTMLProps {
-  preloadedState: PreloadedState<RootState>;
-  children: ReactNode;
-}
+import { HTMLProps } from "./constants/constants";
 
 export const HTML = ({ children, preloadedState }: HTMLProps) => {
   return (

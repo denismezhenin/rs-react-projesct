@@ -1,4 +1,7 @@
 import { ReactElement } from "react";
+import { ReactNode } from "react";
+import { RootState } from "../store/index";
+import { PreloadedState } from "@reduxjs/toolkit";
 
 export interface IProduct {
   id?: number;
@@ -170,3 +173,8 @@ type SearchCardPropsFunction = {
 };
 
 export type SearchCardProp = Character & SearchCardPropsFunction;
+
+export interface HTMLProps {
+  preloadedState: PreloadedState<RootState>;
+  children: ReactNode;
+}
